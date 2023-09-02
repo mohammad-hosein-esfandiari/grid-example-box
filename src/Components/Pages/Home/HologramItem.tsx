@@ -1,6 +1,7 @@
+import React from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import hologram from "../../../assets/hologram.png";
 import {
   HologramItemProps,
@@ -17,6 +18,7 @@ interface AnimationTypes {
 }
 
 export const HologramItem: React.FC<HologramItemProps> = ({
+  component,
   img,
   pos,
   id,
@@ -25,22 +27,31 @@ export const HologramItem: React.FC<HologramItemProps> = ({
   elementsPosition,
 }): React.ReactNode => {
   const { slug } = useParams<{ slug?: string | undefined }>();
+  const navigate = useNavigate();
   const [number] = useState<AnimationTypes>({
     x: Math.ceil(Math.random() * 10),
     y: Math.ceil(Math.random() * 10),
   });
+  const RenderComponent = () => {
+    return React.createElement(component);
+  };
   const anim = returnedAnimation(elementsPosition);
 
-  const linkClickHandler = () => {
-    const pos = findPosFunc(name);
-    setElementPosition({ horizontal: pos.horizontal, vertical: pos.vertical });
+  const linkClickHandler = (event: React.MouseEvent<HTMLElement>) => {
+    if (!slug) {
+
+
+      const pos = findPosFunc(name);
+      setElementPosition({
+        horizontal: pos.horizontal,
+        vertical: pos.vertical,
+      });
+      navigate(`/${id}`);
+    }
   };
-  
 
   return (
-    
-    <Link
-      to={`/${id}`}
+    <div
       onClick={linkClickHandler}
       className={` ${
         slug && slug == id
@@ -58,7 +69,9 @@ export const HologramItem: React.FC<HologramItemProps> = ({
           : ""
       }  transition-all duration-1000  p-4 absolute `}>
       <motion.div
-        className="relative w-full h-full"
+        className={`relative w-full ${
+          slug ? "p-[36px]" : "p-5"
+        } transition-all  delay-0 duration-400  h-full`}
         initial={{ x: 0, y: 0 }}
         animate={{
           x: [0, number.x, number.x, 0, 0],
@@ -71,16 +84,11 @@ export const HologramItem: React.FC<HologramItemProps> = ({
           duration: 6,
         }}>
         <img
-          className={`cursor-pointer w-full h-[105%]  z-10 ${centerAdiv}`}
+          className={`cursor-pointer w-full h-[105%]  z-0 ${centerAdiv}`}
           src={hologram}
           alt=""
         />
-     
-        <img
-          className={`brightness-[1.7] opacity-40 object-fit object-cover w-[92%] h-[86%] ${centerAdiv}`}
-          src={img}
-          alt=""
-        />
+        <RenderComponent />
         {!slug || (slug && slug !== id) ? (
           <>
             <div
@@ -90,6 +98,6 @@ export const HologramItem: React.FC<HologramItemProps> = ({
           </>
         ) : null}
       </motion.div>
-    </Link>
+    </div>
   );
 };

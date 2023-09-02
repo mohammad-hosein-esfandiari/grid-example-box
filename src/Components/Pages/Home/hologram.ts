@@ -1,5 +1,7 @@
 import image from "../../../assets/images.jpg";
 import todolist from "../../../assets/todolist.png";
+import { QuizApp } from "../QuizApp/QuizApp";
+import React from 'react'
 export enum POSITION {
   TR = "top-2 right-2",
   TL = "top-2 left-2",
@@ -23,7 +25,7 @@ export interface HologramArrayProps {
   pos: POSITION;
   img: string;
   name: string;
-  component: string;
+  component: any
 }
 export interface elementsPositionProps {
     horizontal?:string,
@@ -35,16 +37,16 @@ export interface HologramItemProps extends HologramArrayProps  {
 }
 
 export const hologramArray: HologramArrayProps[] = [
-  { id: "TODO-LIST", name: POSITION_NAMES.TR, pos: POSITION.TR, img: todolist,component:"TodoList" },
-  { id: "QUIZ-APP", name: POSITION_NAMES.TL, pos: POSITION.TL, img: image,component:"QuizApp" },
-  { id: "DOSE-GAME", name: POSITION_NAMES.BL, pos: POSITION.BL, img: image,component:"Dose" },
-  {
-    id: "SHOPPING-CART",
-    name: POSITION_NAMES.BR,
-    pos: POSITION.BR,
-    img: image,
-    component:"ShoppingCart"
-  },
+  // { id: "TODO-LIST", name: POSITION_NAMES.TR, pos: POSITION.TR, img: todolist,component:"TodoList" },
+  { id: "QUIZ-APP", name: POSITION_NAMES.TL, pos: POSITION.TL, img: image,component: QuizApp},
+  // { id: "DOSE-GAME", name: POSITION_NAMES.BL, pos: POSITION.BL, img: image,component:"Dose" },
+  // {
+  //   id: "SHOPPING-CART",
+  //   name: POSITION_NAMES.BR,
+  //   pos: POSITION.BR,
+  //   img: image,
+  //   component:"ShoppingCart"
+  // },
 ];
 export const animationPos = (pos: string): string => {
   switch (pos) {

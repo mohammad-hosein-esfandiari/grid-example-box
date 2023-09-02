@@ -3,7 +3,6 @@ import { questions } from "./quiz";
 import { SingleQuiz } from "./SingleQuiz";
 import { QuizWrapper } from "./QuizWrapper";
 
-
 export const QuizApp = () => {
   const [quiz, setQuiz] = useState(0);
   const [score, setScore] = useState(0);
@@ -17,23 +16,28 @@ export const QuizApp = () => {
     setAnswer("");
     setQuiz((prev) => prev + 1);
   };
-
+  const click = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
+  };
   return (
-    <QuizWrapper
-      questions={questions}
-      answer={answer}
-      quiz={quiz}
-      score={score}
-      nextQuiz={nextQuiz}>
-      {questions.map((item) => (
-        
-        <SingleQuiz
-          key={item.id}
-          {...item}
-          clickHandler={clickHandler}
-          answer={answer}
-        />
-      ))}
-    </QuizWrapper>
+    <div
+      onClick={click}
+      className="bg-[#342e37] w-full   h-full flex items-center justify-center">
+      <QuizWrapper
+        questions={questions}
+        answer={answer}
+        quiz={quiz}
+        score={score}
+        nextQuiz={nextQuiz}>
+        {questions.map((item) => (
+          <SingleQuiz
+            key={item.id}
+            {...item}
+            clickHandler={clickHandler}
+            answer={answer}
+          />
+        ))}
+      </QuizWrapper>
+    </div>
   );
 };

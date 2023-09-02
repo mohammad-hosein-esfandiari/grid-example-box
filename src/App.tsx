@@ -14,8 +14,8 @@ import { FilterApp } from "./Components/Pages/FilterApp/FilterApp";
 const App: React.FC = (): React.ReactNode => {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<FilterApp/>}>
-        <Route element={null} path="/:slug"></Route>
+      <Route path="/" element={<Home/>}>
+        <Route  path="/:slug"></Route>
       </Route>
     )
   );
