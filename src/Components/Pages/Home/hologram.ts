@@ -1,7 +1,8 @@
 import image from "../../../assets/images.jpg";
 import todolist from "../../../assets/todolist.png";
 import { QuizApp } from "../QuizApp/QuizApp";
-import React from 'react'
+import { TodoList } from "../TodoList/TodoList";
+import React from "react";
 export enum POSITION {
   TR = "top-2 right-2",
   TL = "top-2 left-2",
@@ -14,6 +15,12 @@ export enum POSITION_NAMES {
   BR = "br",
   BL = "bl",
 }
+export enum Slug {
+  quiz = "QUIZ-APP",
+  todolist = "TODO-LIST",
+  shoppingCart = "SHOPPING-CART",
+  dose = "DOSE-GAME",
+}
 interface AnimationsTypes {
   r: string;
   l: string;
@@ -25,28 +32,46 @@ export interface HologramArrayProps {
   pos: POSITION;
   img: string;
   name: string;
-  component: any
+  component: any;
 }
 export interface elementsPositionProps {
-    horizontal?:string,
-    vertical?:string
+  horizontal?: string;
+  vertical?: string;
 }
-export interface HologramItemProps extends HologramArrayProps  {
-    elementsPosition:elementsPositionProps,
-    setElementPosition:(param:elementsPositionProps)=>void,
+export interface HologramItemProps extends HologramArrayProps {
+  elementsPosition: elementsPositionProps;
+  setElementPosition: (param: elementsPositionProps) => void;
 }
 
 export const hologramArray: HologramArrayProps[] = [
-  // { id: "TODO-LIST", name: POSITION_NAMES.TR, pos: POSITION.TR, img: todolist,component:"TodoList" },
-  { id: "QUIZ-APP", name: POSITION_NAMES.TL, pos: POSITION.TL, img: image,component: QuizApp},
-  // { id: "DOSE-GAME", name: POSITION_NAMES.BL, pos: POSITION.BL, img: image,component:"Dose" },
-  // {
-  //   id: "SHOPPING-CART",
-  //   name: POSITION_NAMES.BR,
-  //   pos: POSITION.BR,
-  //   img: image,
-  //   component:"ShoppingCart"
-  // },
+  {
+    id: Slug.todolist,
+    name: POSITION_NAMES.TR,
+    pos: POSITION.TR,
+    img: todolist,
+    component: TodoList,
+  },
+  {
+    id: Slug.quiz,
+    name: POSITION_NAMES.TL,
+    pos: POSITION.TL,
+    img: image,
+    component: QuizApp,
+  },
+  {
+    id: Slug.dose,
+    name: POSITION_NAMES.BL,
+    pos: POSITION.BL,
+    img: image,
+    component: TodoList,
+  },
+  {
+    id: Slug.shoppingCart,
+    name: POSITION_NAMES.BR,
+    pos: POSITION.BR,
+    img: image,
+    component: QuizApp,
+  },
 ];
 export const animationPos = (pos: string): string => {
   switch (pos) {
@@ -75,7 +100,7 @@ export const centerAdiv: string =
 
 export const itemName: string[] = hologramArray.map((item) => item.id);
 
-export const findPosFunc = (selected:string) => {
+export const findPosFunc = (selected: string) => {
   const topOrBottom = selected.split("")[0];
   const rightOrLeft = selected.split("")[1];
   const elementHorizontalPos = positionNames
@@ -96,24 +121,24 @@ export const animations = {
   b: "translate-y-[100%] ",
 };
 
-export const returnedAnimation = (elementsPosition:elementsPositionProps) => {
-    const rightOrLeft = Object.keys(animations).find(
-      (item) => item === elementsPosition?.horizontal?.split("")[1]
-    );
-    const topOrBottom = Object.keys(animations).find(
-      (item) => item === elementsPosition?.vertical?.split("")[0]
-    );
+export const returnedAnimation = (elementsPosition: elementsPositionProps) => {
+  const rightOrLeft = Object.keys(animations).find(
+    (item) => item === elementsPosition?.horizontal?.split("")[1]
+  );
+  const topOrBottom = Object.keys(animations).find(
+    (item) => item === elementsPosition?.vertical?.split("")[0]
+  );
 
-    // @ts-ignore
-    const translateX = animations[rightOrLeft];
-    // @ts-ignore
-    const translateY = animations[topOrBottom];
-    // @ts-ignore
-    const translateXY = animations[rightOrLeft] + " " + animations[topOrBottom];
+  // @ts-ignore
+  const translateX = animations[rightOrLeft];
+  // @ts-ignore
+  const translateY = animations[topOrBottom];
+  // @ts-ignore
+  const translateXY = animations[rightOrLeft] + " " + animations[topOrBottom];
 
-    return {
-      h: translateX,
-      v: translateY,
-      xy: translateXY,
-    };
+  return {
+    h: translateX,
+    v: translateY,
+    xy: translateXY,
   };
+};

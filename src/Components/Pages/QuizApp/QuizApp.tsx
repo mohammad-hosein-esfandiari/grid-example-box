@@ -3,7 +3,7 @@ import { questions } from "./quiz";
 import { SingleQuiz } from "./SingleQuiz";
 import { QuizWrapper } from "./QuizWrapper";
 
-export const QuizApp = () => {
+export const QuizApp:React.FC = ():JSX.Element => {
   const [quiz, setQuiz] = useState(0);
   const [score, setScore] = useState(0);
   const [answer, setAnswer] = useState("");

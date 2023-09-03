@@ -69,7 +69,7 @@ export const HologramItem: React.FC<HologramItemProps> = ({
           : ""
       }  transition-all duration-1000  p-4 absolute `}>
       <motion.div
-        className={`relative w-full ${
+        className={`relative w-full flex items-center justify-between ${
           slug ? "p-[36px]" : "p-5"
         } transition-all  delay-0 duration-400  h-full`}
         initial={{ x: 0, y: 0 }}
@@ -84,7 +84,7 @@ export const HologramItem: React.FC<HologramItemProps> = ({
           duration: 6,
         }}>
         <img
-          className={`cursor-pointer w-full h-[105%]  z-0 ${centerAdiv}`}
+          className={`cursor-pointer w-full h-[105%] ${slug ? "z-0": "z-10"}  ${centerAdiv}`}
           src={hologram}
           alt=""
         />
