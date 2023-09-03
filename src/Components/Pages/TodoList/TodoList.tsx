@@ -68,12 +68,13 @@ export const TodoList: React.FC = (): JSX.Element => {
 
   return (
     <div
-      className="h-full w-[104%] scale-[1] overflow-hidden relative transition-all duration-300"
+    
+      className={`h-full w-[100%] scale-[1] overflow-hidden relative transition-all duration-300 ${slug !== Slug.todolist && "blur-[2px]"}`}
       style={{ backgroundColor: colors.background1 }}>
       <div
         className=" w-full transition-all flex items-center justify-center py-6 duration-300"
         style={{ background: colors.background2 }}>
-        <div className="w-fit">
+        <div className={`w-fit transition-all duration-300 ${slug !== Slug.todolist ? "scale-[0.7]": ""}`}>
           <div className="flex items-center justify-between">
             <h2
               className="text-[35px] tracking-[10px] font-bold transition-all duration-300"
@@ -131,14 +132,14 @@ export const TodoList: React.FC = (): JSX.Element => {
             onDrop={() => onDropTodo(STATUS[item.status])}
             onDragOver={(e) => e.preventDefault()}
             onDragLeave={(e) => e.preventDefault()}
-            className=" h-full flex flex-col   w-full items-center "
+            className={` h-full flex flex-col w-full items-center `}
             style={{
               borderRight: `${
                 index !== tableItems.length - 1 && `2px dashed ${colors.text}`
               }`,
             }}>
             <h2
-              className="w-full rounded-t-md py-2 text-xl text-center font-bold transition-all duration-300"
+              className={`w-full rounded-t-md py-2 text-xl text-center font-bold transition-all duration-300 ${slug !== Slug.todolist ? "scale-[0.5] translate-y-[-12px]" : "" }`}
               style={{ color: colors.text }}>
               {item.title}
             </h2>
@@ -154,13 +155,7 @@ export const TodoList: React.FC = (): JSX.Element => {
                       todo={el}
                     />
                   ))
-              ) : (
-                <>
-                  <li className=" font-bold p-6 bg-slate-600 text-white flex items-center justify-center rounded-md">
-                    Empty!!!
-                  </li>
-                </>
-              )}
+              ) : null}
             </div>
           </li>
         ))}
