@@ -17,3 +17,24 @@ body{
 .textShadow{
     text-shadow: 0 0 10px #217cbd;
 }
+.bg-1{
+  background: url("./assets/wood.jpg") no-repeat center ;
+  background-size: cover;
+  box-shadow:  0 0 35px 3px #111111;
+}
+.bg-2{
+  background: url("./assets/wooden-texture.jpg") no-repeat center ;
+  background-size: cover;
+  opacity: 1;
+}
+.shadow1{
+  box-shadow: 0 0  1px #070707;
+}
+.bg-circle-black{
+  background: url("./assets/black.png") no-repeat center ;
+  background-size: cover;
+}
+.bg-circle-white{
+  background: url("./assets/white.png") no-repeat center ;
+  background-size: cover;
+}
