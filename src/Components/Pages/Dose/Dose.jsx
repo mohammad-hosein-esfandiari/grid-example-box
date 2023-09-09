@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-
+import { PlayGround } from "./PlayGround";
+import { Details } from "./Details";
+import { Turn } from "./Turn";
+import { DraggableNuts } from "./DraggableNuts";
 export const Dose = () => {
   const [turn, setTurn] = useState(false);
   const [arr1, setArr1] = useState([]);
@@ -220,81 +223,16 @@ export const Dose = () => {
   return (
     <section className="bg-[#4a3324] flex justify-center items-center">
       <div className="flex w-fit p-4">
-        <div className=" bg-1 p-10 rounded-lg">
-          <div className="w-[400px] rounded-lg overflow-hidden bg-2 flex flex-wrap">
-            {arr1.map((item, index) => (
-              <div
-                onDrop={onDropFunc}
-                onDragLeave={(e) => e.preventDefault()}
-                onDragOver={(e) => e.preventDefault()}
-                id={item.id}
-                key={item.id}
-                className={` flex h-[50px] w-[50px] ${
-                  index + 1 < 57 && "border-b-[1px]"
-                } ${
-                  (index + 1) % 8 !== 0 && "border-r-[1px]"
-                }   border-[#643f1867] items-center justify-center`}>
-                {item.nut && (
-                  <div className="w-full rounded-full h-full flex  items-center justify-center">
-                    <div
-                      className={`text-white shadow-md ${
-                        item.nut && item.nut === "black"
-                          ? "bg-circle-black"
-                          : item.nut === "white" && "bg-circle-white"
-                      } flex items-center justify-center rounded-full shadow1 w-[30px]  h-[30px]  select-none`}></div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="flex flex-col">
-          <div className="  flex h-fit ml-4 bg-2 rounded-lg">
-            <div className="relative   w-[70px] h-full">
-              {Array(black)
-                .fill(0)
-                .map((item, index) => (
-                  <div
-                    id={index + 1 + "black"}
-                    draggable={!turn}
-                    onDragStart={() => onDragStartFunc("black")}
-                    className="text-white flex items-center justify-center rounded-full bg-circle-black w-[30px] absolute right-6 top-2 h-[30px] shadow1 cursor-pointer select-none"
-                    key={index + "bbbb"}></div>
-                ))}
-              {Array(white)
-                .fill(0)
-                .map((item, index) => (
-                  <div
-                    id={index + 1 + "white"}
-                    draggable={turn}
-                    onDragStart={() => onDragStartFunc("white")}
-                    className="text-black  flex items-center  justify-center rounded-full bg-circle-white w-[30px] absolute right-6 top-12 h-[30px] cursor-pointer select-none"
-                    key={index + "cccc"}></div>
-                ))}
-            </div>
-            <div className="  text-center pt-3 text-black font-bold text-[15px]  pr-4 ">
-              <div className="flex items-center">
-                <span className="text-[8px] mr-2 font-normal">
-                  BLACK nut count :
-                </span>{" "}
-                {black}
-              </div>
-              <div className="mt-5 pb-2 flex items-center ">
-                <span className="text-[8px] mr-2 font-normal">
-                  WHITE nut count :
-                </span>{" "}
-                {white}
-              </div>
-            </div>
-          </div>
-          <div className=" flex items-center justify-center py-4 h-fit ml-4 bg-2 mt-4 rounded-lg text-[10px]">
-            its{" "}
-            <span className="font-bold text-[15px] text-[#4a3324] mx-2">
-              {turn ? "WHITE" : "BLACK"}
-            </span>{" "}
-            turn
-          </div>
-        </div>
+        <PlayGround nutsArray={arr1} onDropFunction={onDropFunc} />
+        <Details>
+          <DraggableNuts
+            black={black}
+            white={white}
+            turn={turn}
+            onDragStartFunction={onDragStartFunc}
+          />
+          <Turn />
+        </Details>
       </div>
     </section>
   );
