@@ -222,7 +222,7 @@ export const Dose = () => {
 
   return (
     <section className="bg-[#4a3324] flex justify-center items-center">
-      <div className="flex w-fit p-4">
+      <div className="flex w-fit p-10 ">
         <PlayGround nutsArray={arr1} onDropFunction={onDropFunc} />
         <Details>
           <DraggableNuts

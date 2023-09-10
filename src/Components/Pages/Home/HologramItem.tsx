@@ -4,14 +4,12 @@ import { motion } from "framer-motion";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import hologram from "../../../assets/hologram.png";
 import {
-  HologramItemProps,
   animationPos,
-  animations,
   centerAdiv,
-  elementsPositionProps,
   findPosFunc,
   returnedAnimation,
 } from "./hologram";
+import { HologramItemProps } from "./hologram.types";
 interface AnimationTypes {
   x: number;
   y: number;
@@ -39,8 +37,6 @@ export const HologramItem: React.FC<HologramItemProps> = ({
 
   const linkClickHandler = (event: React.MouseEvent<HTMLElement>) => {
     if (!slug) {
-
-
       const pos = findPosFunc(name);
       setElementPosition({
         horizontal: pos.horizontal,
@@ -84,11 +80,25 @@ export const HologramItem: React.FC<HologramItemProps> = ({
           duration: 6,
         }}>
         <img
-          className={`cursor-pointer w-full h-[105%] ${slug ? "z-0": "z-10"}  ${centerAdiv}`}
+          className={`cursor-pointer w-full h-[105%] ${
+            slug ? "z-0" : "z-10"
+          }  ${centerAdiv}`}
           src={hologram}
           alt=""
         />
-        <RenderComponent />
+        {slug && slug === id ? (
+          <RenderComponent />
+        ) : (
+          <div className=" w-full h-[105%] overflow-hidden">
+            <img
+              className={`cursor-pointer object-cover object-center blur-[2px] `}
+              src={img}
+              alt=""
+            />
+          </div>
+        )}
+
+        {/* <RenderComponent /> */}
         {!slug || (slug && slug !== id) ? (
           <>
             <div

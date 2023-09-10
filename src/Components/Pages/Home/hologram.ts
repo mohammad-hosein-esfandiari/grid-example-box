@@ -1,75 +1,38 @@
-import image from "../../../assets/images.jpg";
-import todolist from "../../../assets/todolist.png";
+import todoListImg from "../../../assets/todolist.png"
+import quizAppImg from "../../../assets/qiuz.png"
+import doseAppImg from "../../../assets/dose.png"
 import { QuizApp } from "../QuizApp/QuizApp";
 import { TodoList } from "../TodoList/TodoList";
-import React from "react";
-export enum POSITION {
-  TR = "top-2 right-2",
-  TL = "top-2 left-2",
-  BR = "bottom-2 right-2",
-  BL = "bottom-2 left-2",
-}
-export enum POSITION_NAMES {
-  TR = "tr",
-  TL = "tl",
-  BR = "br",
-  BL = "bl",
-}
-export enum Slug {
-  quiz = "QUIZ-APP",
-  todolist = "TODO-LIST",
-  shoppingCart = "SHOPPING-CART",
-  dose = "DOSE-GAME",
-}
-interface AnimationsTypes {
-  r: string;
-  l: string;
-  t: string;
-  b: string;
-}
-export interface HologramArrayProps {
-  id: string;
-  pos: POSITION;
-  img: string;
-  name: string;
-  component: any;
-}
-export interface elementsPositionProps {
-  horizontal?: string;
-  vertical?: string;
-}
-export interface HologramItemProps extends HologramArrayProps {
-  elementsPosition: elementsPositionProps;
-  setElementPosition: (param: elementsPositionProps) => void;
-}
+import { HologramArrayProps, POSITION, POSITION_NAMES, Slug, elementsPositionProps } from "./hologram.types";
+
 
 export const hologramArray: HologramArrayProps[] = [
   {
     id: Slug.todolist,
     name: POSITION_NAMES.TR,
     pos: POSITION.TR,
-    img: todolist,
+    img: todoListImg,
     component: TodoList,
   },
   {
     id: Slug.quiz,
     name: POSITION_NAMES.TL,
     pos: POSITION.TL,
-    img: image,
+    img: quizAppImg,
     component: QuizApp,
   },
   {
     id: Slug.dose,
     name: POSITION_NAMES.BL,
     pos: POSITION.BL,
-    img: image,
+    img: doseAppImg,
     component: TodoList,
   },
   {
     id: Slug.shoppingCart,
     name: POSITION_NAMES.BR,
     pos: POSITION.BR,
-    img: image,
+    img: todoListImg,
     component: QuizApp,
   },
 ];
