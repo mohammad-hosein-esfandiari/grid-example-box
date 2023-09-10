@@ -1,5 +1,5 @@
 import React from "react";
-import { DraggableNutsProps } from "./dose.types";
+import { DraggableNutsProps } from "./types/dose.types";
 
 type WhiteNutsProps = Omit<DraggableNutsProps, "black">;
 export const WhiteNuts: React.FC<WhiteNutsProps> = ({

@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom";
 import { ButtonScore } from "./ButtonScore";
 import { FinalScore } from "./FinalScore";
-import { QuizWrapperType } from "./quiz";
 import { AnimatePresence, motion } from "framer-motion";
-import { Slug } from "../Home/hologram";
+import { Slug } from "../../Home/types/hologram.types";
+import { QuizWrapperType } from "../types/quizApp.types";
+
+
 
 export const QuizWrapper: React.FC<QuizWrapperType> = ({
   quiz,

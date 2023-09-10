@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { NutsTypes } from "./dose.types";
+import { NutsTypes } from "./types/dose.types";
 
 interface PlayGroundProps {
   nutsArray: NutsTypes[];

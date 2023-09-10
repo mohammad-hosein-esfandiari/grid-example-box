@@ -1,5 +1,5 @@
 import React from "react";
-import { inputArray } from "../../products";
+import { inputArray } from "../../utils/products";
 import { InputWrapper } from "./InputWrapper";
 
 

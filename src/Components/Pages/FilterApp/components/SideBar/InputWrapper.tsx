@@ -1,5 +1,5 @@
 import React from 'react'
-import { inputArrayTypes } from '../../products'
+import { inputArrayTypes } from '../../utils/products'
 import { Input } from './Input'
 
 

@@ -2,7 +2,7 @@ import React from "react";
 import { BlackNuts } from "./BlackNuts";
 import { WhiteNuts } from "./WhiteNuts";
 import { NutsCount } from "./NutsCount";
-import { DraggableNutsProps } from "./dose.types";
+import { DraggableNutsProps } from "./types/dose.types";
 
 export const DraggableNuts: React.FC<DraggableNutsProps> = ({
   black,

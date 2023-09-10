@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Content } from "./components/Content/Content";
 import { SideBar } from "./components/SideBar/SideBar";
-import { products2 } from "./products";
+import { products2 } from "./utils/products";
 import useFilter from "./store/filtering";
 
 export const FilterApp = () => {

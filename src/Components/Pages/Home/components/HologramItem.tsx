@@ -2,14 +2,14 @@ import React from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import hologram from "../../../assets/hologram.png";
+import hologram from "../../../../assets/hologram.png";
 import {
   animationPos,
   centerAdiv,
   findPosFunc,
   returnedAnimation,
-} from "./hologram";
-import { HologramItemProps } from "./hologram.types";
+} from "../utils/hologram";
+import { HologramItemProps } from "../types/hologram.types";
 interface AnimationTypes {
   x: number;
   y: number;

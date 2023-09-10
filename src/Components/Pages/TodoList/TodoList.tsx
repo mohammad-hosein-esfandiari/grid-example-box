@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { MdOutlineLightMode, MdOutlineDarkMode } from "react-icons/md";
-import { SingleTodo } from "./SingleTodo";
+import { SingleTodo } from "./components/SingleTodo";
 import { tableItems } from "./todo";
-import { usetheme } from "./useTheme";
+import { usetheme } from "./hooks/useTheme";
 import { useParams } from "react-router-dom";
-import { Slug } from "../Home/hologram";
+import { Slug } from "../Home/types/hologram.types";
 
 export enum STATUS {
   pending = "pending",

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { QuestionTypes } from "./quiz";
+import { QuestionTypes } from "../types/quizApp.types";
+
 interface SingleQuizType extends QuestionTypes {
   answer: string;
   clickHandler: (answer: string) => void;

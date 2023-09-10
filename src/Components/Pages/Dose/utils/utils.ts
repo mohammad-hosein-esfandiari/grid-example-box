@@ -1,4 +1,4 @@
-import { OnDragStartFuncParams } from "./dose.types";
+import { OnDragStartFuncParams } from "../types/dose.types";
 
 
 

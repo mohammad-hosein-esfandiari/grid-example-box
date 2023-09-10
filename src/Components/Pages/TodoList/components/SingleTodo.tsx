@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import { TodosType } from "./TodoList";
+import { TodosType } from "../TodoList";
 
 interface SingleTodoProps {
   todo: TodosType;

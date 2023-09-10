@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { questions } from "./quiz";
-import { SingleQuiz } from "./SingleQuiz";
-import { QuizWrapper } from "./QuizWrapper";
+import { questions } from "./utils/quiz";
+import { QuizWrapper } from "./components/QuizWrapper";
+import { SingleQuiz } from "./components/SingleQuiz";
 
 export const QuizApp:React.FC = ():JSX.Element => {
   const [quiz, setQuiz] = useState(0);

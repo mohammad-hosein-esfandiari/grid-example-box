@@ -1,4 +1,4 @@
-import { DraggableNutsProps } from "./dose.types";
+import { DraggableNutsProps } from "./types/dose.types";
 
 type CountNutsProps = Pick<DraggableNutsProps, "black" | "white">;
 

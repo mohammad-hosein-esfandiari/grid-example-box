@@ -1,9 +1,9 @@
-import todoListImg from "../../../assets/todolist.png"
-import quizAppImg from "../../../assets/qiuz.png"
-import doseAppImg from "../../../assets/dose.png"
-import { QuizApp } from "../QuizApp/QuizApp";
-import { TodoList } from "../TodoList/TodoList";
-import { HologramArrayProps, POSITION, POSITION_NAMES, Slug, elementsPositionProps } from "./hologram.types";
+import todoListImg from "../../../../assets/todolist.png"
+import quizAppImg from "../../../../assets/qiuz.png"
+import doseAppImg from "../../../../assets/dose.png"
+import { QuizApp } from "../../QuizApp/QuizApp";
+import { TodoList } from "../../TodoList/TodoList";
+import { HologramArrayProps, POSITION, POSITION_NAMES, Slug, elementsPositionProps } from "../types/hologram.types";
 
 
 export const hologramArray: HologramArrayProps[] = [

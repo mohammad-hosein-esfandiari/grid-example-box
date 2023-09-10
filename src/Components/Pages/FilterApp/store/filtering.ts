@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { MainProps } from "../components/Content/Card";
-import { products2 } from "../products";
+import { products2 } from "../utils/products";
 
 interface FilterProps {
   products: MainProps[];

@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { HologramItem } from "./HologramItem";
+import { HologramItem } from "./components/HologramItem";
 import { useParams } from "react-router-dom";
 import {
-  HologramArrayProps,
-  elementsPositionProps,
   findPosFunc,
   hologramArray,
-} from "./hologram";
+} from "./utils/hologram";
+import { HologramArrayProps, elementsPositionProps } from "./types/hologram.types";
 
 export const Home: React.FC = (): React.ReactNode => {
   const { slug } = useParams<{ slug?: string | undefined }>();

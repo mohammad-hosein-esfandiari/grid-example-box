@@ -1,36 +1,4 @@
-export interface ProductsType {
-  id: number;
-  name: string;
-  category: CATEGORIES;
-  price: number;
-  likeCount: number;
-}
-
-export enum CATEGORIES {
-  digital = "digital",
-  drinks = "drinks",
-  food = "food",
-}
-
-export enum FOOD {
-  vegetables = "vegetables",
-  fruits = "fruits",
-  meal = "meal",
-}
-
-export enum CAR {
-  modern = "modern",
-  classic = "classic",
-  offRoad = "offroad",
-}
-
-export enum DIGITAL {
-  mobile = "mobile",
-  laptop = "laptop",
-  accessories = "accessories",
-}
-
-
+import { CAR, DIGITAL, FOOD, inputArrayTypes } from "../types/filterApp.types";
 
 export const products2 = {
   food: [
@@ -67,7 +35,7 @@ export const products2 = {
       price: 20000,
       likeCount: 30,
       createDate: "2017/01/01",
-      color:"gray"
+      color: "gray",
     },
     {
       id: 2,
@@ -76,7 +44,7 @@ export const products2 = {
       price: 10000,
       likeCount: 9,
       createDate: "2017/01/01",
-      color:"blue"
+      color: "blue",
     },
     {
       id: 3,
@@ -85,7 +53,7 @@ export const products2 = {
       price: 800,
       likeCount: 7,
       createDate: "2017/01/01",
-      color:"white"
+      color: "white",
     },
   ],
   car: [
@@ -122,15 +90,13 @@ export const products2 = {
   ],
 };
 
-export interface inputArrayTypes {
-    id:string
-    type:"checkbox"|"range"|"radio"
-    content:string[]
-}
-
-export const inputArray:inputArrayTypes[] = [
-  {id: "category",type: "checkbox",content: ["all", "digital", "food", "car"]},
-  { id: "version", type: "radio", content: ["newest", "oldest", "popular"]},
-  { id: "price", type: "checkbox", content: ["cheapest", "expensive"]},
-  { id: "range", type: "range", content: ["minPrice","maxPrice"]},
+export const inputArray: inputArrayTypes[] = [
+  {
+    id: "category",
+    type: "checkbox",
+    content: ["all", "digital", "food", "car"],
+  },
+  { id: "version", type: "radio", content: ["newest", "oldest", "popular"] },
+  { id: "price", type: "checkbox", content: ["cheapest", "expensive"] },
+  { id: "range", type: "range", content: ["minPrice", "maxPrice"] },
 ];

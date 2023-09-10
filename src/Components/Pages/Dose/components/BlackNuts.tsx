@@ -1,5 +1,6 @@
 import React from "react";
-import { DraggableNutsProps } from "./dose.types";
+import { DraggableNutsProps } from "../types/dose.types";
+
 
 type BlackNutsProps = Omit<DraggableNutsProps, "white">;
 
