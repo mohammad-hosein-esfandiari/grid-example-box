@@ -1,8 +1,8 @@
 export interface NutsTypes {
-  id: string;
+  id: string ;
   x: number;
   y: number;
-  nut: "white" | "black";
+  nut: "white" | "black" | null;
 }
 export interface DraggableNutsProps {
   turn: boolean;
@@ -17,4 +17,22 @@ export interface OnDragStartFuncParams {
     setDraggedColor: (color: "white" | "black") => void,
     turn: boolean
   ): void;
+}
+
+export interface DoseInitialStatesProps {
+  black:number,
+  white:number,
+  playgroundArray:NutsTypes[],
+  turn:boolean,
+  draggedColor:"black"|"white"|null,
+  winner:"black"|"white"|null
+}
+
+
+export interface setToGroundDosProps {
+  (
+    id:string,
+    draggedColor:"black"|"white"| null,
+    arr:NutsTypes[]
+  ):NutsTypes[]
 }

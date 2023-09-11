@@ -1,8 +1,10 @@
-import { DraggableNutsProps } from "./types/dose.types";
+import { useSelector } from "react-redux";
+import { DoseInitialStatesProps } from "../types/dose.types";
 
-type CountNutsProps = Pick<DraggableNutsProps, "black" | "white">;
+export const NutsCount: React.FC = () => {
+  const black = useSelector((state: DoseInitialStatesProps) => state.black);
+  const white = useSelector((state: DoseInitialStatesProps) => state.white);
 
-export const NutsCount: React.FC<CountNutsProps> = ({ black, white }) => {
   return (
     <div className="  text-center pt-3 text-black font-bold text-[15px]  pr-4 ">
       <div className="flex items-center">

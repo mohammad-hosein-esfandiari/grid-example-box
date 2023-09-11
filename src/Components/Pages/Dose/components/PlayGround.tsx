@@ -1,21 +1,19 @@
 import { FC } from "react";
-import { NutsTypes } from "./types/dose.types";
+import { DoseInitialStatesProps } from "../types/dose.types";
+import { useSelector,useDispatch } from "react-redux";
+import { onDropFunc } from "../store/index";
 
-interface PlayGroundProps {
-  nutsArray: NutsTypes[];
-  onDropFunction: () => void;
-}
 
-export const PlayGround: FC<PlayGroundProps> = ({
-  nutsArray,
-  onDropFunction,
-}) => {
-  return (
+export const PlayGround: FC = () => {
+const playGroundArray = useSelector((state:DoseInitialStatesProps)=>state.playgroundArray)
+const dispatch = useDispatch()
+
+return (
     <div className=" bg-1 p-10 rounded-lg">
       <div className="w-[400px] rounded-lg overflow-hidden bg-2 flex flex-wrap">
-        {nutsArray.map((item, index) => (
+        {playGroundArray.map((item, index) => (
           <div
-            onDrop={onDropFunction}
+            onDrop={(event:React.MouseEvent<HTMLDivElement>)=>dispatch(onDropFunc(event.currentTarget.id))}
             onDragLeave={(e) => e.preventDefault()}
             onDragOver={(e) => e.preventDefault()}
             id={item.id}

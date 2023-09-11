@@ -65,7 +65,7 @@ export const HologramItem: React.FC<HologramItemProps> = ({
           : ""
       }  transition-all duration-1000  p-4 absolute `}>
       <motion.div
-        className={`relative w-full flex items-center justify-between ${
+        className={`relative  w-full flex items-center justify-between ${
           slug ? "p-[36px]" : "p-5"
         } transition-all  delay-0 duration-400  h-full`}
         initial={{ x: 0, y: 0 }}
@@ -79,6 +79,8 @@ export const HologramItem: React.FC<HologramItemProps> = ({
           repeatType: "loop",
           duration: 6,
         }}>
+          <div className=" w-full h-full overflow-hidden">
+
         <img
           className={`cursor-pointer w-full h-[105%] ${
             slug ? "z-0" : "z-10"
@@ -107,6 +109,7 @@ export const HologramItem: React.FC<HologramItemProps> = ({
             </div>
           </>
         ) : null}
+          </div>
       </motion.div>
     </div>
   );

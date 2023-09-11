@@ -4,6 +4,7 @@ import doseAppImg from "../../../../assets/dose.png"
 import { QuizApp } from "../../QuizApp/QuizApp";
 import { TodoList } from "../../TodoList/TodoList";
 import { HologramArrayProps, POSITION, POSITION_NAMES, Slug, elementsPositionProps } from "../types/hologram.types";
+import { Dose } from "../../Dose/Dose";
 
 
 export const hologramArray: HologramArrayProps[] = [
@@ -26,7 +27,7 @@ export const hologramArray: HologramArrayProps[] = [
     name: POSITION_NAMES.BL,
     pos: POSITION.BL,
     img: doseAppImg,
-    component: TodoList,
+    component: Dose,
   },
   {
     id: Slug.shoppingCart,

@@ -1,12 +1,14 @@
 import React from "react";
-import { DraggableNutsProps } from "./types/dose.types";
+import { DoseInitialStatesProps } from "../types/dose.types";
+import { useDispatch, useSelector } from "react-redux";
+import { onDragStartFunc } from "../store/index";
 
-type WhiteNutsProps = Omit<DraggableNutsProps, "black">;
-export const WhiteNuts: React.FC<WhiteNutsProps> = ({
-  onDragStartFunction,
-  turn,
-  white,
-}) => {
+
+
+export const WhiteNuts: React.FC = () => {
+  const turn = useSelector((state: DoseInitialStatesProps) => state.turn);
+  const white = useSelector((state: DoseInitialStatesProps) => state.white);
+  const dispatch = useDispatch();
   return (
     <>
       {Array(white)
@@ -15,7 +17,7 @@ export const WhiteNuts: React.FC<WhiteNutsProps> = ({
           <div
             id={index + 1 + "white"}
             draggable={turn}
-            onDragStart={() => onDragStartFunction("white")}
+            onDragStart={() => dispatch(onDragStartFunc("white"))}
             className="text-black  flex items-center  justify-center rounded-full bg-circle-white w-[30px] absolute right-6 top-12 h-[30px] cursor-pointer select-none"
             key={index + "cccc"}></div>
         ))}
