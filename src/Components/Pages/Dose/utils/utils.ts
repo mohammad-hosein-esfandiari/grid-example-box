@@ -1,3 +1,4 @@
+import { current } from "@reduxjs/toolkit";
 import { NutsTypes, OnDragStartFuncParams, setToGroundDosProps } from "../types/dose.types";
 
 
@@ -155,7 +156,6 @@ export const onDragStartFunc:OnDragStartFuncParams = (color,setDraggedColor,turn
 
     const lastArr = [...lllArr, ...xPlusArray];
     const winnerCheckObj = lastFuncWinner(lastArr);
-    console.log("winner cheak" ,lastArr)
     return winnerCheckObj;
   };
   export const check4 = (obj:NutsTypes, arr:NutsTypes[]) => {
@@ -169,9 +169,15 @@ export const onDragStartFunc:OnDragStartFuncParams = (color,setDraggedColor,turn
         if (num2.y <= 8 && num2.y > 0) {
           yPlusArray.push(item);
           num.y++;
+          console.log({...item})
         }
       }
     });
+    const findedNuts = arr.filter((item)=>{
+
+      return item.x === num.x
+    })
+   
     reverseArr.forEach((item, index) => {
       if (item.x == num2.x && item.y == num2.y - 1) {
         if (num2.y <= 8 && num2.y > 0) {
@@ -180,10 +186,11 @@ export const onDragStartFunc:OnDragStartFuncParams = (color,setDraggedColor,turn
         }
       }
     });
-
+    // console.log("plus",yPlusArray)
+    // console.log("minuse",yMinuseArray)
     const lastArr = [...yMinuseArray.reverse(), ...yPlusArray];
     const winnerCheckObj = lastFuncWinner(lastArr);
-
+console.log(winnerCheckObj)
     return winnerCheckObj;
   };
 
