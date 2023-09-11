@@ -1,4 +1,4 @@
-import img from "../../../../../assets/download.jpg";
+import img from "../../../../../assets/wood.jpg"
 
 export interface MainProps {
   id: number;

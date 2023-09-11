@@ -1,10 +1,12 @@
 import todoListImg from "../../../../assets/todolist.png"
 import quizAppImg from "../../../../assets/qiuz.png"
 import doseAppImg from "../../../../assets/dose.png"
+import filterAppImg from "../../../../assets/filter.png"
 import { QuizApp } from "../../QuizApp/QuizApp";
 import { TodoList } from "../../TodoList/TodoList";
 import { HologramArrayProps, POSITION, POSITION_NAMES, Slug, elementsPositionProps } from "../types/hologram.types";
 import { Dose } from "../../Dose/Dose";
+import { FilterApp } from "../../FilterApp/FilterApp";
 
 
 export const hologramArray: HologramArrayProps[] = [
@@ -33,8 +35,8 @@ export const hologramArray: HologramArrayProps[] = [
     id: Slug.shoppingCart,
     name: POSITION_NAMES.BR,
     pos: POSITION.BR,
-    img: todoListImg,
-    component: QuizApp,
+    img: filterAppImg,
+    component: FilterApp,
   },
 ];
 export const animationPos = (pos: string): string => {
