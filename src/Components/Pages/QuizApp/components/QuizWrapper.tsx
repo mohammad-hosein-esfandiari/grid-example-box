@@ -21,7 +21,7 @@ export const QuizWrapper: React.FC<QuizWrapperType> = ({
     <div
       className={`w-fit ${
         slug !== Slug.quiz ? "blur-[1.5px] scale-[0.6]" : "scale-1"
-      } transition-all duration-300  h-fit flex items-center justify-center flex-col `}>
+      } transition-all duration-300 z-10 h-fit flex items-center justify-center flex-col `}>
       <AnimatePresence mode="wait">
         {quiz <= questions.length - 1 ? (
           <motion.div

@@ -69,7 +69,7 @@ export const TodoList: React.FC = (): JSX.Element => {
   return (
     <div
     
-      className={`h-full w-[100%]  overflow-hidden relative transition-all duration-300 ${slug !== Slug.todolist && "blur-[2px]"}`}
+      className={`h-full w-[100%] z-10 overflow-hidden relative transition-all duration-300 ${slug !== Slug.todolist && "blur-[2px]"}`}
       style={{ backgroundColor: colors.background1 }}>
       <div
         className=" w-full transition-all flex items-center justify-center py-6 duration-300"

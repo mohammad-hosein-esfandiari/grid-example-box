@@ -14,7 +14,7 @@ export const FilterApp:React.FC = ():JSX.Element => {
     console.log(event)
   }
   return (
-    <div onClick={click} className="w-full h-full  bg-gray-300">
+    <div onClick={click} className="w-full h-full relative z-10 bg-gray-300">
       <div className="w-full h-full xl:container grid grid-cols-5 gap-2">
         <SideBar />
         <Content />

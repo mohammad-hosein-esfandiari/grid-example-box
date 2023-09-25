@@ -81,26 +81,24 @@ export const HologramItem: React.FC<HologramItemProps> = ({
         }}>
           <div className=" w-full h-full overflow-hidden">
 
+            {slug && slug === id ? (
+              <RenderComponent />
+            ) : (
+              <div className=" w-full h-[105%] overflow-hidden">
+                <img
+                  className={`object-cover object-center blur-[2px] `}
+                  src={img}
+                  alt=""
+                />
+              </div>
+            )}
         <img
-          className={`cursor-pointer w-full h-[105%] ${
+          className={`cursor-pointer absolute w-full h-[105%] ${
             slug ? "z-0" : "z-10"
           }  ${centerAdiv}`}
           src={hologram}
           alt=""
         />
-        {slug && slug === id ? (
-          <RenderComponent />
-        ) : (
-          <div className=" w-full h-[105%] overflow-hidden">
-            <img
-              className={`cursor-pointer object-cover object-center blur-[2px] `}
-              src={img}
-              alt=""
-            />
-          </div>
-        )}
-
-        {/* <RenderComponent /> */}
         {!slug || (slug && slug !== id) ? (
           <>
             <div

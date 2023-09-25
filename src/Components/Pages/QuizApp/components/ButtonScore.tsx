@@ -1,5 +1,6 @@
-import { ButtonScoreProps } from "./quiz";
+
 import { motion } from "framer-motion";
+import { ButtonScoreProps } from "../types/quizApp.types";
 
 export const ButtonScore: React.FC<ButtonScoreProps> = ({
   answer,
